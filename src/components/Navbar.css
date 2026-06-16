@@ -1,0 +1,312 @@
+/* ── Navbar base ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+  padding: 18px 0;
+}
+
+.navbar--scrolled {
+  background: rgba(250, 246, 240, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(201, 169, 110, 0.2), var(--shadow-sm);
+  padding: 10px 0;
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ── Logo ── */
+.navbar__logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  text-decoration: none;
+
+  /* GPU layer for performance */
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.navbar__logo-link:hover {
+  transform: scale(1.03);
+}
+
+/* Image wrapper with glow */
+.navbar__logo-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.navbar__logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  z-index: 1;
+  transition:
+    filter 0.4s ease,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Subtle drop-shadow always present */
+  filter: drop-shadow(0 2px 6px rgba(201, 169, 110, 0.18));
+}
+
+/* Golden glow ring — invisible by default */
+.navbar__logo-glow {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 169, 110, 0.35) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0.85);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hover state: glow blooms, image lifts */
+.navbar__logo-link:hover .navbar__logo-glow {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.navbar__logo-link:hover .navbar__logo-img {
+  filter: drop-shadow(0 4px 14px rgba(201, 169, 110, 0.45));
+  transform: translateY(-1px) rotate(-1deg);
+}
+
+/* Focus-visible ring for accessibility */
+.navbar__logo-link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Text block beside logo */
+.navbar__logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  line-height: 1;
+}
+
+.navbar__logo-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  transition: color var(--transition);
+}
+
+.navbar__logo-tagline {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* ── Nav links ── */
+.navbar__nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.navbar__link {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  padding-bottom: 3px;
+  transition: color var(--transition);
+}
+
+.navbar__link-underline {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.navbar__link:hover {
+  color: var(--burgundy);
+}
+
+.navbar__link:hover .navbar__link-underline {
+  width: 100%;
+}
+
+/* ── CTA button ── */
+.navbar__cta {
+  margin-left: auto;
+  white-space: nowrap;
+  font-size: 0.78rem;
+  padding: 10px 22px;
+}
+
+/* ── Hamburger ── */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--charcoal);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.navbar__hamburger.active span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.navbar__hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.navbar__hamburger.active span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ── Mobile drawer ── */
+.navbar__drawer {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(250, 246, 240, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(201, 169, 110, 0.2);
+  box-shadow: var(--shadow-lg);
+  padding: 24px 24px 32px;
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar--open .navbar__drawer {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.navbar__drawer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navbar__drawer-link {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+  transition: color var(--transition);
+}
+
+.navbar__drawer-link:hover {
+  color: var(--burgundy);
+}
+
+.navbar__drawer-cta {
+  margin-top: 16px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .navbar__nav {
+    display: none;
+  }
+  .navbar__cta {
+    display: none;
+  }
+  .navbar__hamburger {
+    display: flex;
+  }
+  .navbar__drawer {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__logo-text {
+    display: none;
+  }
+  .navbar__logo-img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ── Dark section override: when nav is over dark hero ── */
+.navbar:not(.navbar--scrolled) .navbar__logo-name {
+  color: var(--cream);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.navbar:not(.navbar--scrolled) .navbar__link {
+  color: rgba(250, 246, 240, 0.85);
+}
+
+.navbar:not(.navbar--scrolled) .navbar__link:hover {
+  color: var(--gold);
+}
+
+.navbar:not(.navbar--scrolled) .navbar__hamburger span {
+  background: var(--cream);
+}

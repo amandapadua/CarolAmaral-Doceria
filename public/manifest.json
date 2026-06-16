@@ -1,0 +1,25 @@
+{
+  "short_name": "Carol Doceria",
+  "name": "Carol Amaral Doceria",
+  "description": "Encomendas de doces artesanais em Araguari, MG",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#6b1a2a",
+  "background_color": "#faf6f0",
+  "orientation": "portrait",
+  "categories": ["food", "shopping"]
+}

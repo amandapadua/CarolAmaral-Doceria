@@ -1,0 +1,113 @@
+.como-funciona {
+  background: var(--cream);
+}
+
+.como-funciona__header {
+  text-align: center;
+  margin-bottom: 64px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.como-funciona__header.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+.como-funciona__header .ornament {
+  justify-content: center;
+}
+
+.como-funciona__header .section-subtitle {
+  margin: 0 auto;
+}
+
+.como-funciona__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.cf-step {
+  position: relative;
+  padding: 40px 32px 40px 24px;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.cf-step.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+.cf-step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(201,169,110,0.3), transparent);
+}
+
+.cf-step:first-child::before { display: none; }
+
+.cf-step__num {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 300;
+  color: rgba(201, 169, 110, 0.15);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.cf-step__icon {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+.cf-step__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+}
+
+.cf-step__desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.cf-step__arrow {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .como-funciona__steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cf-step::before {
+    display: block;
+  }
+  .cf-step:nth-child(odd)::before { display: none; }
+}
+
+@media (max-width: 560px) {
+  .como-funciona__steps {
+    grid-template-columns: 1fr;
+  }
+  .cf-step::before {
+    display: none;
+  }
+  .cf-step {
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+  }
+}
