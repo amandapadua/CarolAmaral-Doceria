@@ -45,7 +45,7 @@ export default function Footer() {
     </li>
     <li>
       <span className="footer__contact-label">Atendimento</span>
-      <span> Ter – Sáb, 10h–20h</span>
+      <span> Ter – Dom, 10h–20h</span>
     </li>
   </ul>
 </div>
