@@ -15,14 +15,14 @@
 // ============================================================
 
 export const CATEGORIAS = [
-  { id: "copos", nome: "Copos da Felicidade" },
+  { id: "copos", nome: "Copo da Felicidade" },
   { id: "brownies", nome: "Brownie" },
-  {id: "cookie", nome: "Cookies"},
-  { id: "potes", nome: "Bolos no pote" },
+  {id: "cookie", nome: "Cookie"},
+  { id: "potes", nome: "Bolo no Pote" },
   { id: "cones", nome: "Cone Trufado" },
-  { id: "bolos", nome: "Bolos" },
+  { id: "bolos", nome: "Bolo" },
   { id: "espetinhos", nome: "Espetinho de Fruta" },
-  { id: "tortas", nome: "Mouses e tortas" },
+  { id: "tortas", nome: "Mousse e Torta" },
   
 ];
 
@@ -130,7 +130,7 @@ export const PRODUTOS = [
     ativo: true,
     nome: "Mini cookies no copo",
     desc: "5 mini cookies de chocolate com gotas de chocolate, acomoanhados de uma deliciosa cobertura dupla na tampa: creme de ninho cremoso e Nutella.",
-    preco: 18.00,
+    preco: 16.00,
     imagem: "/images/mini-cookie.jpeg",
   },
 
