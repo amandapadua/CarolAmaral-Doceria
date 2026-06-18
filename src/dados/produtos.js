@@ -151,7 +151,7 @@ export const PRODUTOS = [
     nome: "Bolo de pote de coco",
     desc: "Massa fofinha com creme de coco sedoso. Sabor refrescante e tropical a cada colherada.",
     preco: 13.00,
-    imagem: "/images/pote-coco.webp",
+    imagem: "/images/bolopote.jpeg",
   },
   {
     id: 6,
@@ -160,7 +160,7 @@ export const PRODUTOS = [
     nome: "Bolo de pote abacaxi com coco",
     desc: "Massa fofinha, creme de abacaxi suave e creme de coco cremoso. ",
     preco: 13.00,
-    imagem: "/images/pote-abacaxi.webp",
+    imagem: "/images/bolopote.jpeg",
   },
   {
     id: 7,
@@ -178,7 +178,7 @@ export const PRODUTOS = [
     nome: "Bolo de pote nozes com ninho",
     desc: "Massa branca fofinha intercaladas com camadas de creme de ninho e creme de nozes.",
     preco: 13.00,
-    imagem: "/images/pote-cenoura.webp",
+    imagem: "/images/bolopote.jpeg",
   },
   {
     id: 9,
