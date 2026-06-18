@@ -3,6 +3,8 @@ import useInView from '../hooks/useInView';
 import useCarrinho from '../hooks/useCarrinho';
 import { PRODUTOS, CATEGORIAS } from '../dados/produtos';
 import './Cardapio.css';
+import StatusLoja from './StatusLoja';
+
 
 const WHATSAPP = '5534998303082';
 
@@ -273,6 +275,7 @@ export default function Cardapio() {
         <div className={`cardapio__header${inView ? ' in-view' : ''}`}>
           <span className="section-label">Nossos Produtos</span>
           <h2 className="section-title">Cardápio</h2>
+          <StatusLoja/>
           <div className="ornament">
             <span className="ornament-line" />
             <span className="ornament-diamond" />
