@@ -128,7 +128,7 @@ export const PRODUTOS = [
     id: 28,
     cat: "cookie",
     ativo: true,
-    nome: "Mini cookie no copo",
+    nome: "Mini cookies no copo",
     desc: "5 mini cookies de chocolate com gotas de chocolate, acomoanhados de uma deliciosa cobertura dupla na tampa: creme de ninho cremoso e Nutella.",
     preco: 18.00,
     imagem: "/images/mini-cookie.jpeg",
