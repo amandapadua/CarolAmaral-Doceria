@@ -52,6 +52,11 @@ function ModalCarrinho({ aberto, onFechar, carrinho }) {
   const [end,  setEnd]          = useState('');
   const [obs,  setObs]          = useState('');
 
+  // Taxa de entrega (só aplica quando escolher "Entrega")
+  const TAXA_ENTREGA = 10;
+  const taxaEntrega = ret === 'Entrega' ? TAXA_ENTREGA : 0;
+  const totalFinal = total + taxaEntrega;
+
   // Campos encomenda
   const [eNome,  setENome]      = useState('');
   const [eWpp,   setEWpp]       = useState('');
@@ -90,7 +95,10 @@ function ModalCarrinho({ aberto, onFechar, carrinho }) {
     lista.forEach(i => {
       msg += `   ${i.qtd}x ${i.nome}  —  ${fmt(i.preco * i.qtd)}\n`;
     });
-    msg += `${LINHA}\n*TOTAL: ${fmt(total)}*\n*Pagamento:* ${pag}\n`;
+    if (taxaEntrega > 0) {
+      msg += `${LINHA}\n*Subtotal:* ${fmt(total)}\n*Taxa de entrega:* ${fmt(taxaEntrega)}\n`;
+    }
+    msg += `${LINHA}\n*TOTAL: ${fmt(totalFinal)}*\n*Pagamento:* ${pag}\n`;
     if (obs) msg += `*Obs:* ${obs}\n`;
     msg += `${LINHA}\n_Pedido recebido pelo site Carol Amaral Doceria_`;
 
@@ -175,9 +183,15 @@ function ModalCarrinho({ aberto, onFechar, carrinho }) {
                       ))}
                     </div>
                     <div className="modal-resumo">
+                      {taxaEntrega > 0 && (
+                        <div className="resumo-row">
+                          <span>Taxa de entrega</span>
+                          <span>{fmt(taxaEntrega)}</span>
+                        </div>
+                      )}
                       <div className="resumo-row total">
                         <span>Total</span>
-                        <span>{fmt(total)}</span>
+                        <span>{fmt(totalFinal)}</span>
                       </div>
                     </div>
                   </>
@@ -229,7 +243,6 @@ function ModalCarrinho({ aberto, onFechar, carrinho }) {
                 <select className="mf-input" value={eTipo} onChange={e => setETipo(e.target.value)}>
                   <option value="">Tipo de evento</option>
                   <option>Aniversário</option>
-                  <option>Casamento</option>
                   <option>Chá de bebê / revelação</option>
                   <option>Evento corporativo</option>
                   <option>Presente</option>
