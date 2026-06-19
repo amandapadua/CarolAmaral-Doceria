@@ -1,7 +1,7 @@
 import './StatusLoja.css';
 
 function StatusLoja() {
-  const aberto = true; // troque para false quando estiver fechado
+  const aberto = false; // troque para false quando estiver fechado
 
   return (
     <div className="status-loja">
