@@ -84,11 +84,6 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <a href="#cardapio" className="navbar__drawer-link" onClick={handleLinkClick}>
-              Cardápio
-            </a>
-          </li>
-          <li>
             <a href="#encomenda" className="btn-primary navbar__drawer-cta" onClick={handleLinkClick}>
               Fazer Encomenda
             </a>
