@@ -11,13 +11,13 @@ function StatusLoja() {
       const minutos = agora.getMinutes();
       const totalMinutos = hora * 60 + minutos;
 
-      const abertura = 10 * 60; // 10:00 = 600 minutos
-      const fechamento = 20 * 60; // 20:00 = 1200 minutos
+      const abertura = 10 * 60; 
+      const fechamento = 20 * 60;
 
       setAberto(totalMinutos >= abertura && totalMinutos < fechamento);
     }
 
-    verificarHorario(); // roda imediatamente
+    verificarHorario();
 
     const intervalo = setInterval(verificarHorario, 60000); // checa a cada 1 minuto
 

@@ -23,6 +23,7 @@ export const CATEGORIAS = [
   { id: "bolos", nome: "Bolo" },
   { id: "espetinhos", nome: "Espetinho de Fruta" },
   { id: "tortas", nome: "Mousse e Torta" },
+  {id: "palha", nome: "Palha Italiana"},
   
 ];
 
@@ -277,5 +278,17 @@ export const PRODUTOS = [
   desc: "Uvas frescas e suculentas envolvidas por um delicioso creme branco e cobertas com uma generosa camada de chocolate.",
   preco: 16.0,
   imagem: "/images/uva.jpeg",
-}
-];
+},
+
+
+// ── Palha Italiana ────────────────────────────────────────
+
+{
+  id: 29,
+  cat: "palha",
+  ativo: true,
+  nome: "Palha Italiana de ninho com oreo",
+  desc: "Cremosa, feita com leite Ninho e pedaços de Oreo, finalizada com leite em pó. Uma combinação deliciosa e irresistível!",
+  preco: 8.0,
+  imagem: "/images/",
+}];
