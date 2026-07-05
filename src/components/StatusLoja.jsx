@@ -12,7 +12,7 @@ function StatusLoja() {
       const totalMinutos = hora * 60 + minutos;
 
       const abertura = 10 * 60; 
-      const fechamento = 20 * 60;
+      const fechamento = 16 * 60;
 
       setAberto(totalMinutos >= abertura && totalMinutos < fechamento);
     }
