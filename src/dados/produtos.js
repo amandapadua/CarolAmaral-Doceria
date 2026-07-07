@@ -286,7 +286,7 @@ export const PRODUTOS = [
 {
   id: 29,
   cat: "palha",
-  ativo: true,
+  ativo: false,
   nome: "Palha Italiana de ninho com oreo",
   desc: "Cremosa, feita com leite Ninho e pedaços de Oreo, finalizada com leite em pó. Uma combinação deliciosa e irresistível!",
   preco: 7.50,
