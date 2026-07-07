@@ -106,7 +106,7 @@ export const PRODUTOS = [
    {
     id: 26,
     cat: "brownies",
-    ativo: true,
+    ativo: false,
     nome: "Fatia de brownie ninho com morango",
     desc: "Fatia de brownie coberta com creme de ninho e pedaços de morango.",
     preco: 18.00,
